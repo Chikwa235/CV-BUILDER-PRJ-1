@@ -55,5 +55,10 @@ textarea {
   min-height: 80px;
 }
 
+input[type="file"] {
+  background: transparent;
+  padding: 0;
+}
+
 
 
