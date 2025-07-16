@@ -38,3 +38,25 @@ profilePicInput.addEventListener('change', function (e) {
   };
   reader.readAsDataURL(file);
 });
+
+// Add Experience Fields
+let expCount = 0;
+function addExperience() {
+  expCount++;
+  const container = document.getElementById('experienceSection');
+  const div = document.createElement('div');
+  div.classList.add('input-group');
+  div.innerHTML = `
+    <label>Job Title</label>
+    <input type="text" id="jobTitle${expCount}" />
+    <label>Company</label>
+    <input type="text" id="company${expCount}" />
+    <label>Duration</label>
+    <input type="text" id="duration${expCount}" />
+    <label>Responsibilities (one per line)</label>
+    <textarea id="responsibilities${expCount}"></textarea>
+  `;
+  container.appendChild(div);
+}
+
+document.getElementById('addExperienceBtn').addEventListener('click', addExperience);
