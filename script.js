@@ -9,3 +9,9 @@ function isValidPhone(phone) {
   const phoneRegex = /^\+?[0-9]{7,15}$/;
   return phoneRegex.test(phone);
 }
+
+// Theme Switching
+const themeSelector = document.getElementById('themeSelector');
+themeSelector.addEventListener('change', function (e) {
+  document.body.className = e.target.value;
+});
