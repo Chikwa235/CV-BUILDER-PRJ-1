@@ -160,3 +160,26 @@ References available upon request.
   document.getElementById('output').textContent = cvText;
 
 }
+// Styled Preview
+  const preview = document.getElementById('styledPreview');
+  preview.innerHTML = `
+    <h2>${get('name')}</h2>
+    <p><strong>Location:</strong> ${get('location')} | <strong>Phone:</strong> ${get('phone')} | <strong>Email:</strong> ${get('email')}</p>
+    <hr>
+    <h3>Professional Summary</h3>
+    <p>${get('summary')}</p>
+    <h3>Skills</h3>
+    <p>${get('skills')}</p>
+    <h3>Experience</h3>
+    <p>${get('experience')}</p>
+    <h3>Education</h3>
+    <p>${get('education')}</p>
+    <h3>Certifications</h3>
+    <p>${get('certifications')}</p>
+    <h3>Additional Info</h3>
+    <p>${get('additional')}</p>
+  `;
+  preview.classList.remove('hidden-preview');
+
+
+document.getElementById('generateBtn').addEventListener('click', generateCV);
