@@ -60,3 +60,24 @@ function addExperience() {
 }
 
 document.getElementById('addExperienceBtn').addEventListener('click', addExperience);
+
+// Add Education Fields
+let eduCount = 0;
+function addEducation() {
+  eduCount++;
+  const container = document.getElementById('educationSection');
+  const div = document.createElement('div');
+  div.classList.add('input-group');
+  div.innerHTML = `
+    <label>Institution</label>
+    <input type="text" id="institution${eduCount}" />
+    <label>Degree</label>
+    <input type="text" id="degree${eduCount}" />
+    <label>Years Attended</label>
+    <input type="text" id="years${eduCount}" />
+  `;
+  container.appendChild(div);
+}
+
+document.getElementById('addEducationBtn').addEventListener('click', addEducation);
+
