@@ -98,5 +98,11 @@ input[type="file"] {
   object-fit: cover;
 }
 
+/* Theme selector styling */
+#themeSelector {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
 
 
