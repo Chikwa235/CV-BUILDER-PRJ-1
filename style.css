@@ -208,4 +208,15 @@ body.minimal #profilePreview {
 }
 
 
+/* Styled preview block */
+#styledPreview.hidden-preview {
+  margin-top: 2rem;
+  background: #fff;
+  color: #111;
+  padding: 2rem;
+  border-radius: 12px;
+  display: none;
+}
+
+
 
