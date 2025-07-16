@@ -104,5 +104,16 @@ input[type="file"] {
   font-weight: bold;
 }
 
+/* === THEMES === */
+
+/* Modern Theme (Default) */
+body.modern {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-color: white;
+  --primary-color: #10b981;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 
 
