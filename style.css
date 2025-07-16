@@ -4,3 +4,13 @@
   --text-color: white;
   --primary-color: #10b981;
 }
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  padding: 2rem;
+  transition: background 0.5s, color 0.5s;
+}
+
+
