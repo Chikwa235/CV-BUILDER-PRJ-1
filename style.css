@@ -27,4 +27,9 @@ h1 {
   transition: background 0.5s;
 }
 
+.input-group {
+  margin-bottom: 1rem;
+}
+
+
 
