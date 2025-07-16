@@ -181,5 +181,63 @@ References available upon request.
   `;
   preview.classList.remove('hidden-preview');
 
-
+  
 document.getElementById('generateBtn').addEventListener('click', generateCV);
+
+  
+
+// Download PDF
+async function downloadCV() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const get = id => document.getElementById(id).value.trim();
+  let y = 15;
+
+  if (profilePicDataUrl) {
+    try {
+      const props = doc.getImageProperties(profilePicDataUrl);
+      const width = 40;
+      const height = (props.height * width) / props.width;
+      doc.addImage(profilePicDataUrl, 'JPEG', doc.internal.pageSize.getWidth() - 10 - width, y, width, height);
+    } catch (e) {
+      console.warn('Image not added:', e);
+    }
+  }
+
+  const sections = {
+    'Name & Contact': `${get('name')}\n${get('location')}\nPhone: ${get('phone')}  Email: ${get('email')}\n${get('linkedin') ? 'LinkedIn: ' + get('linkedin') : ''}\n${get('github') ? 'GitHub: ' + get('github') : ''}\n${get('portfolio') ? 'Portfolio: ' + get('portfolio') : ''}`.trim(),
+    'Professional Summary': get('summary'),
+    'Technical Skills': get('skills').split(',').map(s => '- ' + s.trim()).join('\n'),
+    'Experience': get('experience'),
+    'Education': get('education'),
+    'Certifications': get('certifications') || 'N/A',
+    'Additional Info': get('additional')
+  };
+
+  Object.entries(sections).forEach(([title, content]) => {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(14);
+    doc.text(title, 10, y);
+    y += 8;
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    const lines = doc.splitTextToSize(content, 180);
+    lines.forEach(line => {
+      if (y > 270) {
+        doc.addPage();
+        y = 15;
+      }
+      doc.text(line, 10, y);
+      y += 6;
+    });
+    y += 5;
+  });
+
+  doc.setFont('helvetica', 'italic');
+  doc.setFontSize(10);
+  doc.text('References available upon request.', 10, y);
+  doc.save('My_CV.pdf');
+}
+
+document.getElementById('downloadBtn').addEventListener('click', downloadCV);
