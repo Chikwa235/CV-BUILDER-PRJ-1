@@ -31,5 +31,11 @@ h1 {
   margin-bottom: 1rem;
 }
 
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
 
 
