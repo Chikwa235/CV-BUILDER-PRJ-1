@@ -187,4 +187,25 @@ body.minimal #profilePreview {
 }
 
 
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .builder {
+    padding: 1rem;
+  }
+
+  input[type="text"],
+  textarea,
+  select {
+    font-size: 0.95rem;
+  }
+
+  #styledPreview {
+    padding: 1rem;
+  }
+}
+
+
 
